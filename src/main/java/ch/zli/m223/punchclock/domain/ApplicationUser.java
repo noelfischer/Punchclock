@@ -32,6 +32,14 @@ public class ApplicationUser {
         this.id = id;
     }
 
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
     public String getUsername() {
         return username;
     }

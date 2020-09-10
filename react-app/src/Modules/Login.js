@@ -13,7 +13,10 @@ function Login() {
 
         let newUser = {
             "username": username,
-            "password": password
+            "password": password,
+            "role": {
+                "id": 1
+            }
         }
         UserService.login(newUser).then(respons => {
             console.log(respons.headers.authorization)

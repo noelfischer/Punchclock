@@ -13,7 +13,10 @@ function UserForm() {
 
         let newUser = {
             "username": username,
-            "password": password
+            "password": password,
+            "role": {
+                "id": 1
+            }
         }
         UserService.create(newUser).then(respons => {
             console.log(respons)

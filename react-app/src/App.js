@@ -20,11 +20,14 @@ function App(data) {
     const [entry, setEntry] = useState()
 
     useEffect(() => {
-        console.log('effect')
+        console.log('this should be before', 2)
 
     }, [])
-    console.log(1, entries)
+    console.log(1, entries.data)
 
+    const reload = () => {
+        setEntries(entries);
+    }
 
     return (
         <Router>
@@ -67,22 +70,24 @@ function App(data) {
 }
 
 function Home() {
-    if(localStorage.getItem("token")==null){
+    if (localStorage.getItem("token") == null) {
+        console.log("Not logged in!")
         return <Redirect to='/login'/>
-    }else {
-        console.log("token: ",localStorage.getItem("token"))
+    } else {
+        console.log("token: ", localStorage.getItem("token"))
         return <Redirect to='/punchclock'/>
     }
 }
 
 function Punchclock({setEntry, entries}) {
+
     return (
         <div>
             <h2>Punchclock</h2>
             <div>
                 <EntriyForm setEntry={setEntry}/>
 
-                <Entries entries={entries.entries}/>
+                <Entries entries={entries.data}/>
             </div>
         </div>
     );
