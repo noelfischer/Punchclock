@@ -21,6 +21,7 @@ function Login() {
         UserService.login(newUser).then(respons => {
             console.log(respons.headers.authorization)
             localStorage.setItem("token", respons.headers.authorization)
+            window.location.reload(false);
         })
     }
 

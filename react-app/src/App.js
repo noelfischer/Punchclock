@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Entries from "./Modules/Entries";
 import EntryServices from "./EntryServices";
@@ -19,10 +19,6 @@ function App(data) {
     const [entries, setEntries] = useState(data)
     const [entry, setEntry] = useState()
 
-    useEffect(() => {
-        console.log('this should be before', 2)
-
-    }, [])
     console.log(1, entries.data)
 
     const reload = () => {
@@ -103,6 +99,7 @@ function LoginForm() {
 }
 
 function Users() {
+
     return (
         <div>
             <h2>Users</h2>

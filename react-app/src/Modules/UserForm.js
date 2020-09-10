@@ -20,6 +20,7 @@ function UserForm() {
         }
         UserService.create(newUser).then(respons => {
             console.log(respons)
+            window.location.reload(false);
         })
         console.log(newUser)
     }
