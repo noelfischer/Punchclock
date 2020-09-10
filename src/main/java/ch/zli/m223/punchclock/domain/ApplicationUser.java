@@ -4,12 +4,17 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "APPLICATIONUSER")
 public class ApplicationUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(name = "USERNAME")
     private String username;
+
+    @Column(name = "PASSWORD")
     private String password;
 
     @OneToMany

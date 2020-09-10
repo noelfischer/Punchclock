@@ -17,12 +17,12 @@ public class Entry {
 
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonSerialize(using = LocalDateTimeSerializer.class)
-    @Column(nullable = false)
+    @Column(name = "CHECKIN",nullable = false)
     private LocalDateTime checkIn;
 
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonSerialize(using = LocalDateTimeSerializer.class)
-    @Column(nullable = false)
+    @Column(name = "CHECKOUT",nullable = false)
     private LocalDateTime checkOut;
 
     @ManyToOne
