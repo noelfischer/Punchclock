@@ -17,12 +17,14 @@ public class EntryController {
         this.entryService = entryService;
     }
 
+    //Returns the entry with the id <id> to <url>/entries/<id>
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public Optional<Entry> getEntry(@PathVariable String id) {
         return entryService.findById(Long.parseLong(id));
     }
 
+    //The Controller for Delete requests to <url>/entries/<id>
     @DeleteMapping
     @ResponseStatus(HttpStatus.FOUND)
     public void deleteEntry(@PathVariable String id) {

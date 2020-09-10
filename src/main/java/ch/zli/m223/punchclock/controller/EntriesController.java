@@ -17,18 +17,21 @@ public class EntriesController {
         this.entryService = entryService;
     }
 
+    //Returns all entries to <url>/entries
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<Entry> getAllEntries() {
         return entryService.findAll();
     }
 
+    //The controller for Post requests to <url>/entries
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Entry createEntry(@Valid @RequestBody Entry entry) {
         return entryService.createEntry(entry);
     }
 
+    //The controller for Delete requests to <url>/entries
     @DeleteMapping
     @ResponseStatus(HttpStatus.FOUND)
     public void deleteEntry(@Valid @RequestBody Long id) {
