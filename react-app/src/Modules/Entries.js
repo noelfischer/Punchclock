@@ -1,8 +1,16 @@
 import React from 'react';
 import './../App.css'
+import EntryServices from "../EntryServices";
 
 function Entries({entries}) {
     console.log(2, entries)
+
+    const handleDelete = (id) => {
+        EntryServices.remove(id + 1).then(response => {
+
+        })
+        console.log(id)
+    }
 
     return (
         <div>
@@ -21,6 +29,9 @@ function Entries({entries}) {
                             <td>{entry.id}:</td>
                             <td>{new Date(entry.checkIn).toLocaleString()}</td>
                             <td>{new Date(entry.checkOut).toLocaleString()}</td>
+                            <td>
+                                <button onClick={() => handleDelete(id)}>delete</button>
+                            </td>
                         </tr>
                     )
                 })}

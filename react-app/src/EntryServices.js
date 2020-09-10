@@ -29,11 +29,16 @@ const update = (id, newObject) => {
 }
 
 const remove = (id) => {
-    return axios.delete(`${baseUrl}/${id}`, {
-        headers: {
-            'Authorization': localStorage.getItem("token")
-        }
-    })
+        return axios.delete(`${baseUrl}/${id}`, {
+            headers: {
+                'Authorization': localStorage.getItem("token")
+            }
+        }).catch(e => {
+            console.log(e)
+            window.location.reload(false);
+        })
+
+
 }
 
 export default {
