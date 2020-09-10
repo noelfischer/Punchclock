@@ -25,6 +25,10 @@ public class Entry {
     @Column(nullable = false)
     private LocalDateTime checkOut;
 
+    //@ManyToOne
+    //@JoinColumn(name="USER_ID")
+    //private ApplicationUser user;
+
     public Long getId() {
         return id;
     }

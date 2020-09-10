@@ -26,6 +26,19 @@ const createEntry = (e) => {
     });
 };
 
+const deleteEntry = (id) => {
+    console.log("delete", id)
+
+    fetch(`${URL}/entries/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    }).then((result) => {
+            indexEntries()
+        });
+}
+
 const indexEntries = () => {
     fetch(`${URL}/entries`, {
         method: 'GET'
@@ -52,11 +65,16 @@ const renderEntries = () => {
         row.appendChild(createCell(entry.id));
         row.appendChild(createCell(new Date(entry.checkIn).toLocaleString()));
         row.appendChild(createCell(new Date(entry.checkOut).toLocaleString()));
+        const cell = createCell("delete");
+        cell.onclick = function () {
+            deleteEntry(entry.id)
+        }
+        row.appendChild(cell);
         display.appendChild(row);
     });
 };
 
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function () {
     const createEntryForm = document.querySelector('#createEntryForm');
     createEntryForm.addEventListener('submit', createEntry);
     indexEntries();

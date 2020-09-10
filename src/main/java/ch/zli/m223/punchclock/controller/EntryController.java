@@ -5,12 +5,12 @@ import ch.zli.m223.punchclock.service.EntryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/entries")
+@RequestMapping("/entries/{id}")
 public class EntryController {
+
     private EntryService entryService;
 
     public EntryController(EntryService entryService) {
@@ -19,13 +19,14 @@ public class EntryController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<Entry> getAllEntries() {
-        return entryService.findAll();
+    public Optional<Entry> getEntry(@PathVariable String id) {
+        return entryService.findById(Long.parseLong(id));
     }
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public Entry createEntry(@Valid @RequestBody Entry entry) {
-        return entryService.createEntry(entry);
+    @DeleteMapping
+    @ResponseStatus(HttpStatus.FOUND)
+    public void deleteEntry(@PathVariable String id) {
+        System.out.println(id);
+        entryService.deleteEntry(Long.parseLong(id));
     }
 }

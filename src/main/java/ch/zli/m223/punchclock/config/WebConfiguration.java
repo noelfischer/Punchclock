@@ -23,4 +23,5 @@ public class WebConfiguration implements WebMvcConfigurer {
                         "Origin"
                 );
     }
+
 }
