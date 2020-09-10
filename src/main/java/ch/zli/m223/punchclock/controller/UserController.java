@@ -46,4 +46,10 @@ public class UserController {
         applicationUserService.remove(Long.parseLong(id));
     }
 
+    @PutMapping
+    @ResponseStatus(HttpStatus.OK)
+    public void putUser(@RequestBody ApplicationUser user) {
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        applicationUserService.update(user);
+    }
 }

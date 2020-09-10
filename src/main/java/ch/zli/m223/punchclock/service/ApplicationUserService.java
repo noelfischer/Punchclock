@@ -22,4 +22,5 @@ public class ApplicationUserService {
     public void remove(Long id){
         applicationUserRepository.deleteById(id);
     }
+    public void update(ApplicationUser user) { applicationUserRepository.save(user);}
 }

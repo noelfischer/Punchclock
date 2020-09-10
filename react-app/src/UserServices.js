@@ -19,7 +19,7 @@ const login = newObject => {
 }
 
 const update = (id, newObject) => {
-    return axios.put(`${baseUrl}users/${id}`, newObject, {
+    return axios.put(`${baseUrl}users`, newObject, {
         headers: {
             'Authorization': localStorage.getItem("token")
         }
