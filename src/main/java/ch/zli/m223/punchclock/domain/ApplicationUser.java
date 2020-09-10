@@ -16,7 +16,7 @@ public class ApplicationUser {
     private List<Entry> entries;
 
     @ManyToOne
-    @JoinColumn(name="ROLE_ID")
+    @JoinColumn(name="ROLE_ID", nullable = false)
     private Role role;
 
     public long getId() {

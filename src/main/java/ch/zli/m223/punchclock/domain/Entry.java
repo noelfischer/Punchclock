@@ -26,11 +26,11 @@ public class Entry {
     private LocalDateTime checkOut;
 
     @ManyToOne
-    @JoinColumn(name="USER_ID")
+    @JoinColumn(name="USER_ID", nullable = true)
     private ApplicationUser user;
 
     @ManyToOne
-    @JoinColumn(name="CATEGORY_ID")
+    @JoinColumn(name="CATEGORY_ID", nullable = false)
     private EntryCategory category;
 
     public Entry() {
