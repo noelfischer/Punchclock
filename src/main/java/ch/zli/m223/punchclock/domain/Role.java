@@ -1,15 +1,18 @@
 package ch.zli.m223.punchclock.domain;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
+@Entity
 public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String description;
+
+    @OneToMany
+    private List<ApplicationUser> users;
 
     public Long getId() {
         return id;

@@ -1,9 +1,7 @@
 package ch.zli.m223.punchclock.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class ApplicationUser {
@@ -14,8 +12,12 @@ public class ApplicationUser {
     private String username;
     private String password;
 
-    //@OneToMany
-    //private List<Entry> entries;
+    @OneToMany
+    private List<Entry> entries;
+
+    @ManyToOne
+    @JoinColumn(name="ROLE_ID")
+    private Role role;
 
     public long getId() {
         return id;

@@ -25,9 +25,16 @@ public class Entry {
     @Column(nullable = false)
     private LocalDateTime checkOut;
 
-    //@ManyToOne
-    //@JoinColumn(name="USER_ID")
-    //private ApplicationUser user;
+    @ManyToOne
+    @JoinColumn(name="USER_ID")
+    private ApplicationUser user;
+
+    @ManyToOne
+    @JoinColumn(name="CATEGORY_ID")
+    private EntryCategory category;
+
+    public Entry() {
+    }
 
     public Long getId() {
         return id;
