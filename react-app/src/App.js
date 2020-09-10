@@ -5,6 +5,7 @@ import EntryServices from "./EntryServices";
 import EntriyForm from "./Modules/EntryForm";
 import UserForm from "./Modules/UserForm";
 import Login from "./Modules/Login"
+import Userss from "./Modules/Users"
 import {
     BrowserRouter as Router,
     Switch,
@@ -14,16 +15,14 @@ import {
 } from "react-router-dom";
 
 
-function App(data) {
+function App({allentries, allusers}) {
 
-    const [entries, setEntries] = useState(data)
+    const [entries, setEntries] = useState(allentries)
+    const [users, setUsers] = useState(allusers)
     const [entry, setEntry] = useState()
 
-    console.log(1, entries.data)
-
-    const reload = () => {
-        setEntries(entries);
-    }
+    console.log(1, entries)
+    console.log(1.1, allusers)
 
     return (
         <Router>
@@ -48,13 +47,13 @@ function App(data) {
             renders the first one that matches the current URL. */}
                 <Switch>
                     <Route path="/punchclock">
-                        <Punchclock setEntry={setEntry} entries={entries}/>
+                        <Punchclock entries={entries}/>
                     </Route>
                     <Route path="/login">
                         <LoginForm/>
                     </Route>
                     <Route path="/users">
-                        <Users/>
+                        <Users users={users}/>
                     </Route>
                     <Route path="/">
                         <Home/>
@@ -75,15 +74,15 @@ function Home() {
     }
 }
 
-function Punchclock({setEntry, entries}) {
+function Punchclock({entries}) {
 
     return (
         <div>
             <h2>Punchclock</h2>
             <div>
-                <EntriyForm setEntry={setEntry}/>
+                <EntriyForm/>
 
-                <Entries entries={entries.data}/>
+                <Entries entries={entries}/>
             </div>
         </div>
     );
@@ -98,12 +97,13 @@ function LoginForm() {
     );
 }
 
-function Users() {
+function Users(users) {
 
     return (
         <div>
             <h2>Users</h2>
             <UserForm/>
+            <Userss users={users.users}/>
         </div>
     );
 }

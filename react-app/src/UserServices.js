@@ -1,16 +1,21 @@
 import axios from 'axios'
+
 const baseUrl = '/'
 
 const getAll = () => {
-    return axios.get(baseUrl)
+    return axios.get(baseUrl +"users", {
+        headers: {
+            'Authorization': localStorage.getItem("token")
+        }
+    })
 }
 
 const create = newObject => {
-    return axios.post(baseUrl+"users/signup", newObject)
+    return axios.post(baseUrl + "users/signup", newObject)
 }
 
 const login = newObject => {
-    return axios.post(baseUrl+"login", newObject)
+    return axios.post(baseUrl + "login", newObject)
 }
 
 const update = (id, newObject) => {
@@ -18,7 +23,7 @@ const update = (id, newObject) => {
 }
 
 const remove = (id) => {
-    return axios.delete(`${baseUrl}${id}`)
+    return axios.delete(`${baseUrl}users/${id}`)
 }
 
 export default {

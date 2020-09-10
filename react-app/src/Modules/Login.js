@@ -31,7 +31,7 @@ function Login() {
             <input type="text" value={username} onChange={handleUsernameChange} required/>
             <br/>
             <label htmlFor="checkIn">Password</label>
-            <input type="text" value={password} onChange={handlePasswordChange} required/>
+            <input type="password" value={password} onChange={handlePasswordChange} required/>
 
             <input type="submit" value="Save" onClick={addEntry}/>
         </form>

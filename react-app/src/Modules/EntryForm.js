@@ -7,7 +7,7 @@ const dateAndTimeToDate = (dateString, timeString) => {
     return new Date(`${dateString}T${timeString}`).toISOString();
 };
 
-function EntryForm(setEntry) {
+function EntryForm() {
 
     const [cid, setCid] = useState("");
     const [cit, setCit] = useState("");
