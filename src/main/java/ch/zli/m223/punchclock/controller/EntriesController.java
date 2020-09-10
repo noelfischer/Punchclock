@@ -19,6 +19,7 @@ public class EntriesController {
         this.entryRepository = entryRepository;
         this.entryService = entryService;
     }
+
     //Returns all entries to <url>/entries
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
@@ -41,6 +42,7 @@ public class EntriesController {
         entryService.deleteEntry(id);
     }
 
+    //Returns Entry Count
     @GetMapping("/count")
     @ResponseStatus(HttpStatus.OK)
     public int getEntryCount() {

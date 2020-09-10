@@ -40,12 +40,14 @@ public class UserController {
         return applicationUserService.getAll();
     }
 
+    //Deletes a User
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.OK)
     public void removeUser(@PathVariable String id) {
         applicationUserService.remove(Long.parseLong(id));
     }
 
+    //Updates a User
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
     public void putUser(@RequestBody ApplicationUser user) {
