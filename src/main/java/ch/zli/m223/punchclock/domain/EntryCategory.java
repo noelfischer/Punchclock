@@ -1,7 +1,9 @@
 package ch.zli.m223.punchclock.domain;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class EntryCategory {
@@ -11,8 +13,6 @@ public class EntryCategory {
     private Long id;
     private String description;
 
-    @OneToMany
-    private List<Entry> entries;
 
     public Long getId() {
         return id;
