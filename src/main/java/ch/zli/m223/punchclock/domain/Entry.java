@@ -59,4 +59,20 @@ public class Entry {
     public void setCheckOut(LocalDateTime checkOut) {
         this.checkOut = checkOut;
     }
+
+    public ApplicationUser getUser() {
+        return user;
+    }
+
+    public void setUser(ApplicationUser user) {
+        this.user = user;
+    }
+
+    public EntryCategory getCategory() {
+        return category;
+    }
+
+    public void setCategory(EntryCategory category) {
+        this.category = category;
+    }
 }

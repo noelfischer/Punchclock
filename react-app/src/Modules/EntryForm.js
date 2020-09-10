@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import EntriyService from './../EntryServices'
+import {Redirect} from "react-router-dom";
 
 const dateAndTimeToDate = (dateString, timeString) => {
     console.log(dateString)
@@ -23,10 +24,12 @@ function EntryForm(setEntry) {
 
         let newEntry = {
             checkIn: dateAndTimeToDate(cid, cit),
-            checkOut: dateAndTimeToDate(cod, cot)
+            checkOut: dateAndTimeToDate(cod, cot),
+            user: {id: 1},
+            category: {id: 1}
         }
         EntriyService.create(newEntry).then(respons => {
-            //setEntry(newEntry)
+            window.location.reload(false);
         })
         console.log(newEntry)
     }
