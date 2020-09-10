@@ -18,4 +18,8 @@ public class ApplicationUserService {
     public List<ApplicationUser> getAll() {
         return applicationUserRepository.findAll();
     }
+
+    public void remove(Long id){
+        applicationUserRepository.deleteById(id);
+    }
 }

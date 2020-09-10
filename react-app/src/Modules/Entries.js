@@ -6,7 +6,7 @@ function Entries({entries}) {
     console.log(2, entries)
 
     const handleDelete = (id) => {
-        EntryServices.remove(id + 1).then(response => {
+        EntryServices.remove(id).then(response => {
 
         })
         console.log(id)
@@ -30,7 +30,7 @@ function Entries({entries}) {
                             <td>{new Date(entry.checkIn).toLocaleString()}</td>
                             <td>{new Date(entry.checkOut).toLocaleString()}</td>
                             <td>
-                                <button onClick={() => handleDelete(id)}>delete</button>
+                                <button onClick={() => handleDelete(entry.id)}>delete</button>
                             </td>
                         </tr>
                     )

@@ -39,4 +39,11 @@ public class UserController {
     public List<ApplicationUser> getAllUser() {
         return applicationUserService.getAll();
     }
+
+    @DeleteMapping("{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void removeUser(@PathVariable String id) {
+        applicationUserService.remove(Long.parseLong(id));
+    }
+
 }

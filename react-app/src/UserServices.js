@@ -3,7 +3,7 @@ import axios from 'axios'
 const baseUrl = '/'
 
 const getAll = () => {
-    return axios.get(baseUrl +"users", {
+    return axios.get(baseUrl + "users", {
         headers: {
             'Authorization': localStorage.getItem("token")
         }
@@ -19,17 +19,25 @@ const login = newObject => {
 }
 
 const update = (id, newObject) => {
-    return axios.put(`${baseUrl}/${id}`, newObject)
+    return axios.put(`${baseUrl}users/${id}`, newObject, {
+        headers: {
+            'Authorization': localStorage.getItem("token")
+        }
+    })
 }
 
 const remove = (id) => {
-    return axios.delete(`${baseUrl}users/${id}`)
+    return axios.delete(`${baseUrl}users/${id}`, {
+        headers: {
+            'Authorization': localStorage.getItem("token")
+        }
+    })
 }
 
-export default {
-    getAll: getAll,
-    create: create,
-    update: update,
-    login: login,
-    remove: remove
-}
+    export default {
+        getAll: getAll,
+        create: create,
+        update: update,
+        login: login,
+        remove: remove
+    }

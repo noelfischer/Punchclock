@@ -7,8 +7,8 @@ function Users({users}) {
     console.log("users", users)
 
     const handleDelete = (id) => {
-        UserServices.remove(id + 1).then(response => {
-
+        UserServices.remove(id).then(response => {
+            window.location.reload(false);
         })
     }
     return (
@@ -32,7 +32,7 @@ function Users({users}) {
                                 update
                             </td>
                             <td>
-                                <button onClick={handleDelete(id)}>delete</button>
+                                <button onClick={()=>handleDelete(users.id)}>delete</button>
                             </td>
                         </tr>
                     )
